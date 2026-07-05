@@ -1,0 +1,24 @@
+# ==========================================
+# 🚀 專案環境建置說明 (Python 3.10 REQUIRED)
+# ==========================================
+# 1. 建立虛擬環境 (確保已安裝 Python 3.10):
+#    py -3.10 -m venv venv
+#
+# 2. 啟動虛擬環境:
+#    .\venv\Scripts\activate
+#
+# 3. 安裝所有套件:
+#    pip install -r requirements.txt
+# ==========================================
+
+# 🌐 Web Server & API
+fastapi==0.111.0
+uvicorn==0.30.1
+websockets==12.0
+
+# 📊 數據處理與運算
+numpy==1.26.4
+scipy==1.13.0
+
+# 🛡️ Xsens SDK (僅支援 Python 3.10 / cp310-win_amd64)
+xsensdot-pc-sdk @ file:sdk/xsensdot_pc_sdk-2022.2.0-cp310-none-win_amd64.whl

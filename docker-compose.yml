@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: hodo_web
+    restart: always
+    expose:
+      - "8000"  # 只將 port 暴露給內部網路，不對外開放
+    environment:
+      - FLASK_ENV=production
+
+  nginx:
+    image: nginx:alpine
+    container_name: hodo_nginx
+    ports:
+      - "80:80"   # 將主機的 80 port 映射到 Nginx 的 80 port
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - web       # 確保 web 容器先啟動
